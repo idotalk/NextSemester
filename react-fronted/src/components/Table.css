@@ -1,0 +1,51 @@
+select {
+  position: relative;
+  display: flex;
+  width: 7em;
+  height: 2em;
+  border-radius: 0.2em;
+  overflow: hidden;
+}
+
+select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+.notice {
+  color: rgb(10, 10, 10);
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+}
+
+.navi-btns {
+  margin: auto;
+  width: 40rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.navi-btns .filter {
+  text-align: center;
+  width: 88.8%;
+  margin: auto;
+  height: 210px;
+}
+
+.search_input {
+  width: 185px;
+  text-align: right;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
