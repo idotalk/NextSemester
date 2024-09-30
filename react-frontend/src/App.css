@@ -68,7 +68,13 @@ tbody td:hover:before {
   --darkgray: #2c3e50;
 }
 
-
+@media screen and (max-width: 700px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
 footer {
   font-family: Monospace;
   color: rgb(202, 204, 206);
