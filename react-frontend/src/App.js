@@ -11,8 +11,8 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const apiUrl = process.env.BACKURL;
-
+  const {apiUrl} = process.env.BACKURL;
+  console.log(apiUrl);
 
   useEffect(() => {
     // Fetch data from Flask backend
