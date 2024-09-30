@@ -11,13 +11,12 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const {apiUrl} = process.env.BACKURL;
-  console.log(apiUrl);
+  const apiUrl = process.env.BACKURL;
 
   useEffect(() => {
     // Fetch data from Flask backend
     axios
-      .get(`${apiUrl}`)
+      .get(`"${apiUrl}"`)
       .then((response) => {
         setData(response.data);
         setLoading(false);
@@ -42,6 +41,7 @@ const App = () => {
             Check Project @&nbsp;
             <a href="https://github.com/idotalk" target="_blank" rel="noopener">
               idotalk
+  `"${apiUrl}"`
             </a>
           </p>
           <br></br>
