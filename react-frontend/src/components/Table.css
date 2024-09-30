@@ -33,7 +33,13 @@ select::after {
   padding: 1rem;
   padding-bottom: 0;
 }
-
+@media screen and (max-width: 700px) {
+  .navi-btns {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
 .navi-btns .filter {
   text-align: center;
   width: 88.8%;
