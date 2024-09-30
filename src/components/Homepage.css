@@ -1,0 +1,178 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #667292;
+  padding: 20px;
+}
+
+.homepage-content {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.homepage-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.homepage-description {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  overflow: hidden;
+  margin: 0 auto;
+  animation: fadeIn 1.5s steps(40, end);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #667292;
+    padding: 20px;
+  }
+  .homepage-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .homepage-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .homepage-description {
+    font-size: 0.9rem;
+  }
+}
+
+.homepage .mobile_notice {
+  display: none;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  position: sticky;
+  align-self: center;
+}
+
+.homepage .mobile_notice .icon {
+  margin-right: 5px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  75% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.homepage .mobile_notice .icon {
+  animation: rotation 3s 2s infinite alternate ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  .homepage .mobile_notice {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  .homepage {
+    padding-top: 100px;
+  }
+
+  .homepage-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .homepage-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .homepage-description {
+    font-size: 0.9rem;
+  }
+
+  .above-logo-text {
+    font-size: 1.2rem;
+  }
+}
