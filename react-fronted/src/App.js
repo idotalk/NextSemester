@@ -15,7 +15,7 @@ const App = () => {
   useEffect(() => {
     // Fetch data from Flask backend
     axios
-      .get("http://192.168.1.215:5000")
+      .get("_REMOVED")
       .then((response) => {
         setData(response.data);
         setLoading(false);
