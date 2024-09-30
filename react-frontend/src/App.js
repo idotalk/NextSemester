@@ -11,11 +11,13 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = process.env.BACKURL;
+
 
   useEffect(() => {
     // Fetch data from Flask backend
     axios
-      .get(process.env.BACKURL)
+      .get(`${apiUrl}`)
       .then((response) => {
         setData(response.data);
         setLoading(false);
