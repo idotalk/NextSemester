@@ -1,4 +1,4 @@
-
+**https://nextsemester.xyz/**
 # Next Semester
 This project purpose is to help students from the CS faculty in the Technion to make decisions for their next semester courses.
 
