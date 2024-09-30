@@ -6,6 +6,10 @@ import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
 import "./App.css";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+require('dotenv').config()
 
 const App = () => {
   const [data, setData] = useState([]);
