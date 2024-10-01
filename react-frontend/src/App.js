@@ -12,11 +12,12 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const RestfulApiUrl = process.env.REACT_APP_BACKURL;
 
   useEffect(() => {
     // Fetch data from Flask backend
     axios
-      .get("_REMOVED")
+      .get(RestfulApiUrl)
       .then((response) => {
         setData(response.data);
         setLoading(false);
