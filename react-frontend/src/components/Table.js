@@ -146,50 +146,51 @@ const Table = ({ data }) => {
 
   return (
     <div dir="rtl" className="table-container">
-      <div className="navi-btns">
-        <span className="filter">
-          <GlobalFilter
-            preGlobalFilteredRows={preGlobalFilteredRows}
-            globalFilter={globalFilter}
-            setGlobalFilter={setGlobalFilter}
+      <header className="mobile_wrap">
+        <div className="navi-btns">
+          <span className="filter">
+            <GlobalFilter
+              preGlobalFilteredRows={preGlobalFilteredRows}
+              globalFilter={globalFilter}
+              setGlobalFilter={setGlobalFilter}
+            />
+          </span>
+          <span style={{ fontWeight: "bold", paddingRight: "5px" }}>
+            קורסים בעמוד: &nbsp;
+            <select
+              value={pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
+              style={{ display: "inline-block", width: "45px", height: "20px" }}
+            >
+              {[10, 25, 50, 100, 155].map((pageSize) => (
+                <option key={pageSize} value={pageSize}>
+                  {pageSize === 155 ? "הכל" : pageSize}
+                </option>
+              ))}
+              s
+            </select>
+            &nbsp; &nbsp;
+          </span>
+          <FaArrowCircleRight
+            disabled={!canPreviousPage}
+            onClick={() => previousPage()}
+            style={{ cursor: "pointer", display: "inline-block" }}
           />
-        </span>
-        <span style={{ fontWeight: "bold", paddingRight: "5px" }}>
-          קורסים בעמוד: &nbsp;
-          <select
-            value={pageSize}
-            onChange={(e) => setPageSize(Number(e.target.value))}
-            style={{ display: "inline-block", width: "45px", height: "20px" }}
-          >
-            {[10, 25, 50, 100, 155].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
-                {pageSize === 155 ? "הכל" : pageSize}
-              </option>
-            ))}
-            s
-          </select>
-          &nbsp; &nbsp;
-        </span>
-        <FaArrowCircleRight
-          disabled={!canPreviousPage}
-          onClick={() => previousPage()}
-          style={{ cursor: "pointer", display: "inline-block" }}
-        />
-        &nbsp;
-        <span>
-          עמוד{" "}
-          <strong>
-            {pageIndex + 1} מתוך {pageOptions.length}
-          </strong>
-        </span>
-        &nbsp;
-        <FaArrowCircleLeft
-          disabled={!canNextPage}
-          onClick={() => nextPage()}
-          style={{ cursor: "pointer", display: "inline-block" }}
-        />
-      </div>
-
+          &nbsp;
+          <span>
+            עמוד{" "}
+            <strong>
+              {pageIndex + 1} מתוך {pageOptions.length}
+            </strong>
+          </span>
+          &nbsp;
+          <FaArrowCircleLeft
+            disabled={!canNextPage}
+            onClick={() => nextPage()}
+            style={{ cursor: "pointer", display: "inline-block" }}
+          />
+        </div>
+      </header>
       <table dir="rtl" {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
