@@ -30,6 +30,7 @@ function Graphcomp() {
       length: 150,
       smooth: {
         type: "continuous",
+        forceDirection: "none"
       },
     },
     physics: {
