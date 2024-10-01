@@ -60,5 +60,6 @@ select::after {
   .wrap {
     display: flexbox;
     overflow-x: scroll;
+  
   }
 }
