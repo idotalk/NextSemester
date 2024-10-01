@@ -33,13 +33,13 @@ function Graphcomp() {
       },
     },
     physics: {
-      enabled: true,
-      solver: "barnesHut",
-      barnesHut: {
-        gravitationalConstant: -15000,
-        springLength: 250,
-        avoidOverlap: 1,
+      forceAtlas2Based: {
+        gravitationalConstant: -50,
+        centralGravity: 0.005,
+        springConstant: 0.08,
       },
+      solver: "forceAtlas2Based",
+      maxVelocity: 50,
     },
     height: "100%",
     width: "100%",
