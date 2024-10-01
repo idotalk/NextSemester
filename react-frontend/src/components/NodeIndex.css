@@ -1,7 +1,28 @@
-.legend-container {
+.node-index-container {
+  position: relative;
+  z-index: 1000;
+}
+
+.toggle-btn {
   position: fixed;
   top: 70px;
-  direction: ltr;
+  left: 20px;
+  background-color: #8891ab;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+}
+
+.toggle-btn span {
+  margin-left: 10px;
+}
+
+.legend-container {
+  position: fixed;
+  top: 115px;
   left: 20px;
   background-color: #8891ab;
   border: 1px solid #ccc;
@@ -9,19 +30,8 @@
   padding: 15px;
   width: 220px;
   box-shadow: 0px 4px 6px rgba(35, 35, 35, 0.1);
-  z-index: 1000;
 }
 
-@media screen and (max-width: 600px) {
-  .legend-container {
-    visibility: hidden;
-  }
-}
-@media screen and (max-width: 800px) {
-  .legend-container {
-    visibility: hidden;
-  }
-}
 .legend-container h3 {
   margin: 0 0 10px;
   font-size: 18px;
@@ -71,9 +81,9 @@
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position above the question mark */
+  bottom: 125%;
   left: 50%;
-  margin-left: -100px; /* Centers the tooltip */
+  margin-left: -100px;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -81,10 +91,40 @@
 .tooltip-text::after {
   content: "";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
-  left: 50%;
+  top: 100%;
+  left: 24%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .legend-container,
+  .toggle-btn {
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+    top: 70px;
+  }
+
+  .tooltip-text {
+    width: 300px;
+    margin-left: -150px;
+  }
+
+  .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 47%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+
+  .legend-container {
+    top: 110px;
+  }
 }
