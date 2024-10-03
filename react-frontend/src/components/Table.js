@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState,useEffect } from "react";
+import axios from "axios";
 import {
   useTable,
   useSortBy,
@@ -90,6 +91,25 @@ const IconFilter = ({
 
 // Main Table Component
 const Table = ({ data }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const RestfulApiUrl = process.env.REACT_APP_BACKURL;
+
+  useEffect(() => {
+    // Fetch data from Flask backend
+    axios
+      .get(RestfulApiUrl)
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
+
   const columns = useMemo(
     () => [
       { Header: "מס' קורס", accessor: "course_id" },
