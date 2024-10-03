@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Graphcomp from "./components/Graph";
 import Table from "./components/Table";
@@ -9,25 +8,6 @@ import "./App.css";
 
 
 const App = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const RestfulApiUrl = process.env.REACT_APP_BACKURL;
-
-  useEffect(() => {
-    // Fetch data from Flask backend
-    axios
-      .get(RestfulApiUrl)
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
   return (
     <Router>
       <div>
