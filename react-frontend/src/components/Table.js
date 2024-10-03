@@ -90,7 +90,7 @@ const IconFilter = ({
 };
 
 // Main Table Component
-const Table = ({ data }) => {
+const Table = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -14,7 +14,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/table" element={<Table data={data} />} />
+          <Route path="/table" element={<Table />} />
           <Route path="/graph" element={<Graphcomp />} />
         </Routes>
         <footer class="pt-4 text-muted text-center text-small">
