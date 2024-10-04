@@ -87,7 +87,7 @@ footer {
   width: 100%;
 }
 
-@media (orientation: landscape) {
+@media screen and (max-width: 900px) and (orientation: landscape) {
   footer{
     display: none;
   }
