@@ -86,3 +86,9 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+@media (orientation: landscape) {
+  footer{
+    display: none;
+  }
+}
