@@ -34,7 +34,7 @@ div {
     position: -webkit-sticky;
     justify-content: center;
     top: 550px;
-    left: 15px;
+    overflow-x:hidden;
   }
   .search-input {
     height: 10px;
