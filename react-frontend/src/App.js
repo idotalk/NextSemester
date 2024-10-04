@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/table" element={<Table />} />
           <Route path="/graph" element={<Graphcomp />} />
         </Routes>
-        <footer>
+        <footer class="pt-4 text-muted text-center text-small">
           <p class="mb-1">
             Check Project @&nbsp;
             <a href="https://github.com/idotalk" target="_blank" rel="noopener">
