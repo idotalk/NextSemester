@@ -1,1 +1,1 @@
-src/*.js linguist-detectable
+src/** linguist-detectable
