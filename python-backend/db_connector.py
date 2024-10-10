@@ -7,11 +7,15 @@ def estconnection():
         db_password = os.environ['RENDER_PASS']
         db_port = os.environ['RENDER_PORT']
         db_username = os.environ['RENDER_USER']
-        conn = psycopg2.connect(
-                host=db_host,
-                port=db_port,
-                database=db_name,
-                user=db_username,
-                password=db_password,
-                sslmode='require')
-        return conn
+        while True:
+                try:
+                        conn = psycopg2.connect(
+                                host=db_host,
+                                port=db_port,
+                                database=db_name,
+                                user=db_username,
+                                password=db_password,
+                                sslmode='require')
+                except DatabaseError: 
+                        continue
+                return conn
