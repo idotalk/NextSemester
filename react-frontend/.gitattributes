@@ -1,4 +1,4 @@
-src/** linguist-detectable
+src/** linguist-detectable=true
 
 src/** linguist-vendored=false
 src/** linguist-generated=false
