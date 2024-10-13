@@ -1,7 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
 import axios from "axios";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import {
   useTable,
   useSortBy,
@@ -10,9 +8,11 @@ import {
   useAsyncDebounce,
   usePagination,
 } from "react-table";
-import { FaFilter, FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
-import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import { FaFilter, FaSort, FaSortUp, FaSortDown } from "react-icons/fa"; // Import the sorting and filter icons
 import "./Table.css";
+import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const TWO_HUNDRED_MS = 200;
 
@@ -95,7 +95,9 @@ const IconFilter = ({
 const Table = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [minLoadingTime, setMinLoadingTime] = useState(true);
+  const RestfulApiUrl = process.env.REACT_APP_BACKURL;
 
   useEffect(() => {
     const timer = setTimeout(() => setMinLoadingTime(false), 1500);
@@ -110,8 +112,8 @@ const Table = () => {
         setError(error);
         setLoading(false);
       });
-  }, []) ;
-
+    return () => clearTimeout(timer);
+  }, []);
 
   const columns = useMemo(
     () => [
@@ -169,7 +171,7 @@ const Table = () => {
 
   return (
     <div dir="rtl" className="table-container">
-      <header className="wrap">
+      <header className="mobile_wrap">
         <div className="navi-btns">
           <span className="filter">
             <GlobalFilter
@@ -190,6 +192,7 @@ const Table = () => {
                   {pageSize === 155 ? "הכל" : pageSize}
                 </option>
               ))}
+              s
             </select>
             &nbsp; &nbsp;
           </span>
@@ -271,9 +274,10 @@ const Table = () => {
               })}
         </tbody>
       </table>
-      <div className="notice">הערה: סמסטרי קיץ לא נכנסו לשקלול הממוצע</div>
+      <div class="notice">הערה: סמסטרי קיץ לא נכנסו לשקלול הממוצע</div>
     </div>
   );
 };
+
 
 export default Table;
