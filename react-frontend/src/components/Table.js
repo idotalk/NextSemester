@@ -1,5 +1,7 @@
-import React, { useMemo, useState,useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import {
   useTable,
   useSortBy,
@@ -8,9 +10,9 @@ import {
   useAsyncDebounce,
   usePagination,
 } from "react-table";
-import { FaFilter, FaSort, FaSortUp, FaSortDown } from "react-icons/fa"; // Import the sorting and filter icons
-import "./Table.css";
+import { FaFilter, FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import "./Table.css";
 
 const TWO_HUNDRED_MS = 200;
 
@@ -93,21 +95,23 @@ const IconFilter = ({
 const Table = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const RestfulApiUrl = process.env.REACT_APP_BACKURL;
+  const [minLoadingTime, setMinLoadingTime] = useState(true);
 
   useEffect(() => {
-    // Fetch data from Flask backend
+    const timer = setTimeout(() => setMinLoadingTime(false), 1500);
+
     axios
-      .get(RestfulApiUrl)
+      .get("_REMOVED")
       .then((response) => {
         setData(response.data);
         setLoading(false);
       })
       .catch((error) => {
-        setError(error);
+        console.error(error);
         setLoading(false);
       });
+
+    return () => clearTimeout(timer);
   }, []);
 
   const columns = useMemo(
@@ -166,7 +170,7 @@ const Table = () => {
 
   return (
     <div dir="rtl" className="table-container">
-      <header className="mobile_wrap">
+      <header className="wrap">
         <div className="navi-btns">
           <span className="filter">
             <GlobalFilter
@@ -187,7 +191,6 @@ const Table = () => {
                   {pageSize === 155 ? "הכל" : pageSize}
                 </option>
               ))}
-              s
             </select>
             &nbsp; &nbsp;
           </span>
@@ -241,22 +244,37 @@ const Table = () => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                ))}
-              </tr>
-            );
-          })}
+          {loading || minLoadingTime
+            ? Array.from({ length: 10 }).map((_, i) => (
+                <tr key={i}>
+                  {columns.map((column, j) => (
+                    <td key={j}>
+                      <Skeleton
+                        height={15}
+                        width={80}
+                        baseColor="#667292"
+                        highlightColor="#c0ded9"
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      />
+                    </td>
+                  ))}
+                </tr>
+              ))
+            : page.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    ))}
+                  </tr>
+                );
+              })}
         </tbody>
       </table>
-      <div class="notice">הערה: סמסטרי קיץ לא נכנסו לשקלול הממוצע</div>
+      <div className="notice">הערה: סמסטרי קיץ לא נכנסו לשקלול הממוצע</div>
     </div>
   );
 };
-
 
 export default Table;
