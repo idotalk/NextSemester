@@ -100,19 +100,19 @@ const Table = () => {
   useEffect(() => {
     const timer = setTimeout(() => setMinLoadingTime(false), 1500);
 
-    axios
-      .get("_REMOVED")
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-
-    return () => clearTimeout(timer);
-  }, []);
+    useEffect(() => {
+      // Fetch data from Flask backend
+      axios
+        .get(RestfulApiUrl)
+        .then((response) => {
+          setData(response.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+        });
+    }, []);
 
   const columns = useMemo(
     () => [
