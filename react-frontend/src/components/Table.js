@@ -99,20 +99,19 @@ const Table = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setMinLoadingTime(false), 1500);
+    // Fetch data from Flask backend
+    axios
+      .get(RestfulApiUrl)
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []) ;
 
-    useEffect(() => {
-      // Fetch data from Flask backend
-      axios
-        .get(RestfulApiUrl)
-        .then((response) => {
-          setData(response.data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          setError(error);
-          setLoading(false);
-        });
-    }, []);
 
   const columns = useMemo(
     () => [
