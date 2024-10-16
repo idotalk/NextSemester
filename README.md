@@ -17,6 +17,6 @@ Prerequisites data can be found [here](react-frontend/src/components/graphdata.j
 
 **Client:** React, CSS, HTML, [vis.js](https://github.com/visjs), react-table by [TanStack](https://github.com/TanStack/table)
 
-**Server:** Python - Flask, PostgreSQL
+**Server:** Python - Flask(RESTful API), PostgreSQL
 
 **Deployment:** [Render](https://render.com/) 
