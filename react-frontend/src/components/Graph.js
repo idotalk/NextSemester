@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import Graph from "react-vis-network-graph";
 import "./Graph.css";
@@ -20,18 +19,21 @@ function Graphcomp() {
     { "from": 236350, "to": 236490, dashes:true, arrows: { "to": { enabled: false } }},
   ];
   const [prerequisites_data, setPreData] = useState([]);
-  const [graph, setGraph] = useState({ nodes, edges:[] });
+  const [graph, setGraph] = useState({ nodes, edges: [] });
   const [searchId, setSearchId] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const networkRef = useRef(null);
-  
+
   useEffect(() => {
     axios
       .get("RestfulApiUrl/prerequisites")
       .then((response) => {
         setPreData(response.data);
+        setIsLoading(false); 
       })
       .catch((error) => {
         console.error(error);
+        setIsLoading(false); 
       });
   }, []);
 
@@ -146,6 +148,8 @@ function Graphcomp() {
     const { nodes } = event;
     highlightNodeAndNeighbors(nodes[0]);
   };
+
+  if (isLoading) return <div></div>;
 
   return (
     <div className="graph-container">
