@@ -17,5 +17,17 @@ def course_table():
     conn.close()
     return jsonify(data)
 
+@app.route('/prerequisites',methods=['GET'])
+def prerequisites_data():
+    conn = db.estconnection()
+    curr = conn.cursor()
+    curr.execute("SELECT * FROM prerequisites")
+    rows = curr.fetchall()
+    column_names = ["from","to"]
+    data = [dict(zip(column_names, row)) for row in rows]
+    curr.close()
+    conn.close()
+    return jsonify(data)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
