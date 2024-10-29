@@ -20,7 +20,7 @@ function Graphcomp() {
     { "from": 236350, "to": 236490, dashes:true, arrows: { "to": { enabled: false } }},
   ];
   const [prerequisites_data, setPreData] = useState([]);
-  const [graph, setGraph] = useState({ nodes, edges });
+  const [graph, setGraph] = useState({ nodes, edges:[] });
   const [searchId, setSearchId] = useState("");
   const networkRef = useRef(null);
   
