@@ -23,7 +23,7 @@ function Graphcomp() {
   const [searchId, setSearchId] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const networkRef = useRef(null);
-  const RestfulApiUrl = REACT_APP_BACKURL_PREREQUISITES;
+  const RestfulApiUrl = process.env.REACT_APP_BACKURL_PREREQUISITES
   
   useEffect(() => {
     axios
