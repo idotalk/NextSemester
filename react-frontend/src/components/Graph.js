@@ -19,7 +19,6 @@ function Graphcomp() {
     { "from": 236332, "to": 236333, dashes:true, arrows: { "to": { enabled: false } }},
     { "from": 236350, "to": 236490, dashes:true, arrows: { "to": { enabled: false } }},
   ];
-
   const [prerequisites_data, setPreData] = useState([]);
   const [graph, setGraph] = useState({ nodes, edges });
   const [searchId, setSearchId] = useState("");
@@ -41,41 +40,6 @@ function Graphcomp() {
     setGraph({ nodes, edges: combinedEdges });
   }, [prerequisites_data]);
   
-  const option = {
-    autoResize: true,
-    nodes: {
-      shape: "dot",
-      scaling: {
-        min: 10,
-        max: 30,
-      },
-      font: {
-        color: "#343434",
-        size: 12,
-        face: "Tahoma",
-      },
-    },
-    edges: {
-      color: "black",
-      width: 0.4,
-      length: 150,
-      smooth: {
-        type: "continuous",
-      },
-    },
-    physics: {
-      forceAtlas2Based: {
-        gravitationalConstant: -50,
-        centralGravity: 0.005,
-        springConstant: 0.08,
-      },
-      solver: "forceAtlas2Based",
-      maxVelocity: 50,
-    },
-    height: "100%",
-    width: "100%",
-  };
-
   const option = {
     autoResize: true,
     nodes: {
