@@ -246,7 +246,7 @@ const Table = () => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {loading || minLoadingTime
+          {data.length < 1 || loading || minLoadingTime
             ? Array.from({ length: 10 }).map((_, i) => (
                 <tr key={i}>
                   {columns.map((column, j) => (
