@@ -1,4 +1,4 @@
-**https://nextsemester.xyz/**
+**https://nextsemester.xyz/** - site is down, feel free to deploy this project
 # Next Semester
 This project purpose is to help students from the CS faculty at the Technion to make decisions for their next semester courses.
 
@@ -10,7 +10,7 @@ We all know that it is not so comfortable to reach this data with the existing a
 
 
 ## Data
-I've created a database contain the relevant data for this project, if you intrested in getting the data from it contact me.
+I've created a database contain the relevant data for this project, if you intrested in getting the data from it contact me (updated up until Winter 2024 term).
 
 Prerequisites data can be found [here](react-frontend/src/components/graphdata.js)
 ## Tech Stack
@@ -20,3 +20,9 @@ Prerequisites data can be found [here](react-frontend/src/components/graphdata.j
 **Server:** Python - Flask(RESTful API), PostgreSQL
 
 **Deployment:** [Render](https://render.com/) 
+
+## Demo
+![home](https://i.imgur.com/vRcnmvv.png)
+![table](https://s14.gifyu.com/images/bTvY6.gif)
+![graph]()
+
