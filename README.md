@@ -24,5 +24,5 @@ Prerequisites data can be found [here](react-frontend/src/components/graphdata.j
 ## Demo
 ![home](https://i.imgur.com/vRcnmvv.png)
 ![table](https://s14.gifyu.com/images/bTvY6.gif)
-![graph]()
+![graph](https://github.com/idotalk/NextSemester/blob/master/Recording2025-09-05112341-ezgif.com-speed.gif)
 
